@@ -1,3 +1,5 @@
+const maxItems = 5;
+
 console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
@@ -10,12 +12,6 @@ function addItem( str ) {
     }
     return false;
 }
-
-
-
-
-
-
 
 // Tests
 let str = 'blueberries';
@@ -37,7 +33,7 @@ function listItems() {
     }
 }
 // tests
-copyBasket = basket.slice()
+let copyBasket = basket.slice()
 basket = [1,2,3,4,5]
 listItems()
 basket = copyBasket.slice()
@@ -52,21 +48,30 @@ listItems() // basket is empty, as we had hoped.
 
 //           STRETCH GOALS          //
 
-const maxItems = 5;
 
 function isFull() {
     if (basket.length < maxItems) return false;
     return true;
 }
+
+
+function removeItem(str) {
+    let idx = basket.indexOf(str);
+    if (idx === -1) return null;
+    return basket.splice(idx,1);
+}
+
+//tests for removeItem
+basket = ['blueberries','strawberries','yams']
+console.log(`What should be returned is null. Returned: ${removeItem('pizza')}`);
+// test a case where it is in the list:
+console.log(`What should be returned is 'strawberries'. Returned: ${removeItem('strawberries')}`);
+listItems() // check that it is actually removed from basket
+
+
+
 /*
-Update the cart.js file to do the following:
-
-
-
-
 Create a function called removeItem. It should:
-Take an input parameter for a string item
-Use Array.indexOf to find the index of the first matching item in the basket.
 Use Array.splice to remove the first matching item from the basket.
 Return the item removed or null if the item was not found
 */
