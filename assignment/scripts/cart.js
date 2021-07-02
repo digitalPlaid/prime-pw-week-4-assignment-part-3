@@ -68,10 +68,3 @@ console.log(`What should be returned is null. Returned: ${removeItem('pizza')}`)
 console.log(`What should be returned is 'strawberries'. Returned: ${removeItem('strawberries')}`);
 listItems() // check that it is actually removed from basket
 
-
-
-/*
-Create a function called removeItem. It should:
-Use Array.splice to remove the first matching item from the basket.
-Return the item removed or null if the item was not found
-*/
